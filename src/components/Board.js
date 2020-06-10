@@ -9,11 +9,9 @@ export default () => {
 
     ArrowKeysReact.config({
         left: () => {
-            console.log("CLICKED")
           setLeft(true)
         },
         right: () => {
-            console.log("CLICKED")
           setLeft(false)
         },
       });
