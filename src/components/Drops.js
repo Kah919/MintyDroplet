@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
 export default ({direction}) => {
-    // anime({
-    //     targets: '.drop div',
-    //     translateX: 250
-    // });
-    console.log(direction)
+    let [tick, setTick] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTick(tick + 1);
+          }, 500);
+    }, [])
 
     return(
         <div className="drop">

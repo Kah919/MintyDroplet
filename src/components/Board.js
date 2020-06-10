@@ -7,7 +7,6 @@ import ArrowKeysReact from 'arrow-keys-react';
 export default () => {
     const [left, setLeft] = useState(true);
     const [leftSpawn, setLeftSpawn] = useState(true);
-    const [impact, setImpact] = useState(false);
 
     ArrowKeysReact.config({
         left: () => {
@@ -19,14 +18,22 @@ export default () => {
       });
 
     const gameOver = () => {
-        if(impact) {
+        const end = impact()
+        console.log(`thisi is the ${end}`)
+        if(left === end) {
+            console.log(left, end)
             alert("GAME OVER")
         }
     }
 
+    const impact = (direction) => {
+        console.log(direction, "here")
+        return direction;
+    }
+
     return(
         <div className="board" {...ArrowKeysReact.events} tabIndex="1">
-            <Field leftSpawn={leftSpawn} playerSide={left} />
+            <Field leftSpawn={leftSpawn} gameOver={gameOver} impact={(direction) => impact} />
             <PlayerBoard left={left} />
             { gameOver() }
         </div>
