@@ -1,11 +1,13 @@
 import React from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import Player from './Player';
+import Field from './Field';
+import PlayerBoard from './PlayerBoard';
 
 export default () => {
     return(
         <div className="board">
-            <Player />
+            <Field />
+            <PlayerBoard />
         </div>
     )
 }
